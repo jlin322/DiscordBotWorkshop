@@ -1,24 +1,30 @@
-# bot.py
-import os
+#!/usr/bin/env python3
 
 import discord
-from dotenv import load_dotenv
 
-# Load token from environment file
-load_dotenv()
-TOKEN = os.getenv("token")
-# Initialize discord bot
-bot = discord.Client()
-# This runs when the bot has connected to discord
-@bot.event
-async def on_ready():
-    print(f"{bot.user} has connected to discord...")
-    print(f"Bot servers: ")
-    for server in bot.guilds:
-        print(f"Server name: {server.name}, Server ID: {server.id}")
-    # Send a message to a text channel
-    # await bot.get_channel(<your_channel_id_here>).send("bot is online")
+import asyncio
+import time
 
 
-bot.run(TOKEN)
+class MyBot(discord.Client):
+    async def on_ready(self):
+        print('Logged on as {0}!'.format(self.user))
 
+    async def on_message(self, message):
+        if message.author == self.user:
+            return
+
+        if message.content.startswith(".idea"):
+            await message.reply("Okay, so how about this:")
+
+
+def main():
+    with open(".token", "r") as token_file:
+        token = token_file.read().rstrip()
+
+    print("Working on it...")
+    MyBot().run(token)
+
+
+if __name__ == "__main__":
+    main()
