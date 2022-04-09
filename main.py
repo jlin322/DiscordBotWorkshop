@@ -1,9 +1,7 @@
 #!/usr/bin/env python3
 
-import discord
-
 import asyncio
-import time
+import discord
 
 
 class MyBot(discord.Client):
