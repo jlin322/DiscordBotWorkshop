@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 
 import asyncio
+import os
+
+from dotenv import load_dotenv
 import discord
 
 
@@ -17,11 +20,11 @@ class MyBot(discord.Client):
 
 
 def main():
-    with open(".token", "r") as token_file:
-        token = token_file.read().rstrip()
+    load_dotenv()
+    TOKEN = os.getenv("TOKEN")
 
     print("Working on it...")
-    MyBot().run(token)
+    MyBot().run(TOKEN)
 
 
 if __name__ == "__main__":
