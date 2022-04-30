@@ -2,7 +2,12 @@
 
 ## Installation
 
-To setup a development environment with discord.py, please refer to [the slides for this workshop](https://docs.google.com/presentation/d/1P6_EonmytWJQI1XNK5hN7Z9uGZqu5r3KNbyq1u3FTMg/edit?usp=sharing).
+To create a Discord bot and setup a development environment with discord.py, please refer to [the slides for this workshop](https://docs.google.com/presentation/d/1P6_EonmytWJQI1XNK5hN7Z9uGZqu5r3KNbyq1u3FTMg/edit?usp=sharing).
+
+Once you've gone through this process, you should have your bot token. Put this in a `.env` file, formatted like so:
+```
+TOKEN=YOUR_BOT_TOKEN_HERE
+```
 
 ## Usage
 
@@ -18,6 +23,19 @@ if __name__ == "__main__":
     main()
 ```
 
+There are also some imports that we will be needing:
+```py
+# For asynchronous facilities.
+import asyncio
+
+# For loading the .env file.
+import os
+from dotenv import load_dotenv
+
+# For Discord API.
+import discord
+```
+
 [discord.Client](https://discordpy.readthedocs.io/en/stable/api.html#client) is the entrypoint for all of discord.py's functionality. At the top of our file, we create a derived class to modify its behavior:
 
 ```py
@@ -31,19 +49,18 @@ class MyBot(discord.Client):
         print('Logged on as {0}!'.format(self.user))
 ```
 
-This is enough for our `MyBot` class for now. Let's work on putting together our `main` function. We have our token in the `.token` file, and need to read its contents:
+This is enough for our `MyBot` class for now. Let's work on putting together our `main` function. We have our token in the `.env` file, and need to retrieve it using the `dotenv` package:
 
 ```py
-    with open(".token", "r") as token_file:
-        # Strip any trailing whitespace.
-        token = token_file.read().rstrip()
+    load_dotenv()
+    TOKEN = os.getenv("TOKEN")
 ```
 
 With our token, we are ready to instantiate the client, and log into Discord:
 
 ```py
     bot = MyBot()
-    bot.run(token)
+    bot.run(TOKEN)
 ```
 
 Now, we can try out the program. If everything worked, you should see the successful `on_ready` message! Now, for some technical details as to what's going on under the hood:
