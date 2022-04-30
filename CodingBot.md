@@ -1,4 +1,4 @@
-# Making a Discord Bot
+# Coding Our Discord Bot
 ## Discord Bot Applications
 
 ### Welcome new users to discord server
