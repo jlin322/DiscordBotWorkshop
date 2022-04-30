@@ -1,4 +1,4 @@
-# Creating a bot with discord.py
+# Creating a Discord Bot with discord.py
 
 ## Installation
 
