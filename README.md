@@ -5,7 +5,7 @@
 To create a Discord bot and setup a development environment with discord.py, please refer to [the slides for this workshop](https://docs.google.com/presentation/d/1P6_EonmytWJQI1XNK5hN7Z9uGZqu5r3KNbyq1u3FTMg/edit?usp=sharing).
 
 Once you've gone through this process, you should have your bot token. Put this in a `.env` file, formatted like so:
-```
+```python
 TOKEN=YOUR_BOT_TOKEN_HERE
 ```
 
@@ -13,7 +13,7 @@ TOKEN=YOUR_BOT_TOKEN_HERE
 
 Let's make a Discord bot! We start out our `main.py` file with the usual boilerplate, including a [Python 3 shebang](https://stackoverflow.com/a/19305076) and [main function](https://stackoverflow.com/a/419185), both for best practice:
 
-```py
+```python
 #!/usr/bin/env python3
 
 def main():
@@ -24,7 +24,7 @@ if __name__ == "__main__":
 ```
 
 There are also some imports that we will be needing:
-```py
+```python
 # For asynchronous facilities.
 import asyncio
 
@@ -38,27 +38,27 @@ import discord
 
 [discord.Client](https://discordpy.readthedocs.io/en/stable/api.html#client) is the entrypoint for all of discord.py's functionality. At the top of our file, we create a derived class to modify its behavior:
 
-```py
+```python
 class MyBot(discord.Client):
 ```
 
 `discord.Client` has [different events that it listens for](https://discordpy.readthedocs.io/en/stable/api.html#discord-api-events). The `on_ready` coroutine is added to the event loop when the bot is ready to start working. Let's override it with a simple informative message:
 
-```py
-    async def on_ready(self):
-        print('Logged on as {0}!'.format(self.user))
+```python
+async def on_ready(self):
+	print('Logged on as {0}!'.format(self.user))
 ```
 
 This is enough for our `MyBot` class for now. Let's work on putting together our `main` function. We have our token in the `.env` file, and need to retrieve it using the `dotenv` package:
 
-```py
+```python
     load_dotenv()
     TOKEN = os.getenv("TOKEN")
 ```
 
 With our token, we are ready to instantiate the client, and log into Discord:
 
-```py
+```python
     bot = MyBot()
     bot.run(TOKEN)
 ```
@@ -69,22 +69,23 @@ The [`Client.run()` function](https://discordpy.readthedocs.io/en/stable/api.htm
 
 Back to writing code. Let's add another method to our `MyBot` class. This is a coroutine that gets executed whenever a new message is sent:
 
-```py
-    async def on_message(self, message):
+```python
+async def on_message(self, message):
 ```
 
 Now, this is the best part of making a Discord bot. Just look at how much fun stuff that [Message](https://discordpy.readthedocs.io/en/stable/api.html#discord.Message) exposes!
 
 First, we actually have to disregard messages that are from ourselves:
 
-```py
-        if message.author == self.user:
-            return
+```python
+if message.author == self.user:
+  	return
 ```
 
 This compares the snowflake ID of the message author to our bot ID. Now, we can add a command:
 
-```py
-    if message.content.startswith(".idea"):
-        await message.reply("Okay, so how about this:")
+```python
+if message.content.startswith(".idea"):
+	await message.reply("Okay, so how about this:")	
 ```
+

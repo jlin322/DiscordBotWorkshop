@@ -18,7 +18,7 @@ Some argue that concurrency encompasses parallelism, but I think it's less confu
 
 A **generator** is a special type of function that itself is an iterable object. During each iteration, the function will run until it yields a value. When the `yield` statement is encountered, "the generator’s state of execution is suspended and local variables are preserved" [1](https://docs.python.org/3/howto/functional.html#generators). During subsequent iterations, the generator will pick up right where it left off.
 
-```py
+```python
 def yeild_test():
     print("This is the beginning of yeild_test().")
     yield 1
@@ -45,7 +45,7 @@ We now have the building blocks needed to get into concurrency with Python! The 
 A **coroutine** is a special type of generator, repurposed for writing asynchronous functions. Coroutines are defined like normal functions, but with `async` before `def`. Coroutines are queued to run in asyncio's event loop, in which methods run until they yield their time.
 
 To understand how coroutines work, let's look at an example of an inefficient synchronous program:
-```py
+```python
 def upload_files():
     print("Preparing files...")
     # Simulating time spent to do operation.
@@ -71,7 +71,7 @@ def main():
 
     print(f"FINISHED {time.strftime('%X')}")
 ```
-```
+```python
 STARTED AT 01:33:47
 Preparing files...
 Files prepared.
@@ -87,7 +87,7 @@ Look at all that wasted time! We could have been sending emails while waiting fo
 
 Here's the rewritten program:
 
-```py
+```python
 async def upload_files():
     print("Preparing files...")
     # Simulating time spent to do operation.
@@ -118,7 +118,7 @@ async def main():
 # run() enters the event loop, adding the provided coroutine to it.
 asyncio.run(main())
 ```
-```
+```py
 STARTED AT 01:38:29
 Preparing files...
 Sending emails...

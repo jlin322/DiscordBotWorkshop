@@ -2,7 +2,7 @@
 ## Discord Bot Applications
 
 ### Welcome new users to discord server
-```
+```python
 import os
 import discord
 from dotenv import load_dotenv
@@ -30,7 +30,7 @@ client.run(TOKEN)
 * The other function here, on_member_join(), tells the program what to do when a new member joins the server. When the function is called, the program will wait for the member argument to create a direct message channel to communicate with the bot. When that's done, a greeting will be sent to the user before the function returns.
 
 ### Respond to messages from users
-```
+```python
 async def on_message(message):
 	if message.content.startswith('$hello'):
 		await message.channel.send('Hello World!')
@@ -39,7 +39,7 @@ async def on_message(message):
 * You can use the same function to respond to any message with any response you like.
 
 ### Handling errors
-```
+```python
 async def on_message(message):
     if message.author == client.user:
     if message.content == 'HackBU is the best club ever':
