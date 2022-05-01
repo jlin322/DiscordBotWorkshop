@@ -1,10 +1,10 @@
 # Workshop Setup
 
-Before you can make a discord bot, you first have to create a discord account, application, bot, and last but not least, a discord server. Once these are created, you combine them by registering your bot in your guild.
+Before you can make a discord bot, you first have to create a discord account,an application,a bot, and last but not least, a discord server. Once these are created, you combine them by registering the bot in your guild.
 
 ## Discord Account Creation
 
-Head over to https://discord.com/register and fill out the form to create an account. If you already have an account, you could skip this step by just logging into it. 
+Head over to https://discord.com/register and fill out the form to create an account. If you already have an account, you could skip this step by just logging in. 
 
 ## Creating a Discord Application
 
@@ -12,7 +12,7 @@ Visit the [Discord Developer portal](https://discord.com/developers/applications
 
 <img src="https://lh5.googleusercontent.com/FsG0Mcb60e5iJ3AOe1jPnK74hbuDPlbTn0Wk9EnwfN5FuEmp22DuI4mbl9d16gU2vRPoZX_gncaWe18YbTI2m5_87zac4G0yyTMUMaVv4qwtlyHBBoPTiiUOJC8w1KFOPbUcCewZ00HNJcNsTKRggQ" alt="img" style="zoom:30%;" />
 
-Now, on the sidebar of your application page, select Bot to see all your bots, or createa new one. Select ‘Create Bot’ to create a bot (**this is irreversible**). 
+Now, on the sidebar of your application page, select Bot to see all your bots, or create a new one. Select ‘Create Bot’ to create a bot (**this is irreversible**). 
 
 Now you have a dashboard for that bot within your application. To see your bot token, select ‘Reset Token’. (**This can only be done once so save it**)
 
@@ -26,7 +26,7 @@ Head over to the discord app/website. Scroll to the bottom of your server list o
 
 ## Adding a Bot to your server
 
-To add a bot, you head back to your application dashboard and select OAuth2 > URL Generator. Select ‘bot’ in scopes and give it ‘Administrator’ permissions. Copy the generated URL and visit it. Select the server you want to connect it to and click Continue & Authorize it. Now the Application is connected to the server and the bot should be in your server member list. 
+To add a bot, head back to your application dashboard and select OAuth2 > URL Generator. Select ‘bot’ in scopes and give it ‘Administrator’ permissions. Copy the generated URL and visit it. Select the server you want to connect it to and click Continue & Authorize it. Now the Application is connected to the server and the bot should be in your server member list. 
 
 ## Connecting Your Bot Using Discord.py
 
