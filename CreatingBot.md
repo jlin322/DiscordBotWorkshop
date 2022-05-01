@@ -52,7 +52,7 @@ async def on_ready(self):
 This is enough for our `MyBot` class for now. Let's work on putting together our `main` function. We have our token in the `.env` file, and need to retrieve it using the `dotenv` package:
 
 ```python
-    load_dotenv()
+		load_dotenv()
     TOKEN = os.getenv("TOKEN")
 ```
 

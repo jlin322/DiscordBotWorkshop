@@ -8,7 +8,7 @@ This workshop will go over the full process of making a Bot, from grabbing an AP
 
 Today's workshop covers:
 
-1. An introduction to Discord Bots
+1. [An introduction to Discord Bots](https://github.com/HackBinghamton/DiscordBotWorkshop/blob/main/Intro.md)
 2. [Creating a Discord Bot](https://github.com/HackBinghamton/DiscordBotWorkshop/blob/main/CreatingBot.md)
 3. [Coding a Discord Bot](https://github.com/HackBinghamton/DiscordBotWorkshop/blob/main/CodingBot.md)
 
